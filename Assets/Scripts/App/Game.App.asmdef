@@ -5,6 +5,7 @@
         "Game.Core",
         "Game.Sun",
         "Game.Shadow",
+        "Game.Map",
         "VContainer"
     ],
     "includePlatforms": [],

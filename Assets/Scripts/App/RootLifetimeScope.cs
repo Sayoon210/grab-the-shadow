@@ -1,4 +1,5 @@
 using Game.Core;
+using Game.Map;
 using Game.Shadow;
 using Game.Sun;
 using UnityEngine;
@@ -17,9 +18,12 @@ public class RootLifetimeScope : LifetimeScope
         // Sun: the movable light object in the scene provides the light position.
         builder.RegisterComponentInHierarchy<SunView>().As<ISunPosition>();
 
-        // Shadow: pure engine + scene view + the per-frame driver (entry point).
-        builder.Register<ProjectionShadowEngine>(Lifetime.Singleton).As<IShadowEngine>();
-        builder.RegisterComponentInHierarchy<ShadowView>();
+        // Map: occluder geometry the shadow is clipped against.
+        builder.RegisterComponentInHierarchy<OccluderField>().As<IOccluderSource>();
+
+        // Shadow: pure sweep engine + scene caster/view + the per-frame driver.
+        builder.Register<RotationalSweepShadowEngine>(Lifetime.Singleton).As<IShadowEngine>();
+        builder.RegisterComponentInHierarchy<ShadowView>().As<IShadowCaster>();
         builder.RegisterEntryPoint<ShadowSystem>();
     }
 }
