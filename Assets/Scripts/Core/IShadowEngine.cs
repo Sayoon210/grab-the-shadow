@@ -16,6 +16,6 @@ namespace Game.Core
         /// <param name="occluders">Surfaces the shadow lands on / is clipped by.</param>
         /// <param name="maxLength">Clamp so a ray hitting nothing can't cast an infinite shadow.</param>
         ShadowPolygon ComputeShadow(
-            Vector2 lightPosition, in ShadowCaster caster, IReadOnlyList<Segment> occluders, float maxLength);
+            Vector2 lightPosition, in CasterShape caster, IReadOnlyList<Segment> occluders, float maxLength);
     }
 }
