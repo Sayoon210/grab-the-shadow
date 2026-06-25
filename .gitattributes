@@ -1,2 +1,40 @@
-# Auto detect text files and perform LF normalization
+# 기본: 텍스트 파일은 git이 줄바꿈을 자동 정규화 (CRLF/LF 혼선 방지)
 * text=auto
+
+# C# 소스는 항상 LF로 통일 (Windows/Mac 협업·CI 일관성)
+*.cs text eol=lf diff=csharp
+
+# 문서/설정류도 텍스트로 명시
+*.md   text
+*.json text
+*.txt  text
+*.xml  text
+*.yml  text
+*.yaml text
+
+# --- Unity YAML 에셋: 텍스트로 강제 + 전용 머지 도구 사용 ---
+# 씬/프리팹/에셋 등이 충돌하면 UnityYAMLMerge가 구조를 이해하고 병합.
+*.unity         text merge=unityyamlmerge eol=lf
+*.prefab        text merge=unityyamlmerge eol=lf
+*.asset         text merge=unityyamlmerge eol=lf
+*.meta          text merge=unityyamlmerge eol=lf
+*.mat           text merge=unityyamlmerge eol=lf
+*.anim          text merge=unityyamlmerge eol=lf
+*.controller    text merge=unityyamlmerge eol=lf
+*.physicMaterial text merge=unityyamlmerge eol=lf
+*.physicsMaterial2D text merge=unityyamlmerge eol=lf
+*.inputactions  text eol=lf
+
+# --- 흔한 바이너리: diff 시도 안 하도록 표시 ---
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.psd  binary
+*.aseprite binary
+*.wav  binary
+*.mp3  binary
+*.ogg  binary
+*.ttf  binary
+*.otf  binary
+*.dll  binary
