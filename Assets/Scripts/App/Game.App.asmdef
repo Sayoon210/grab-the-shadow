@@ -3,6 +3,8 @@
     "rootNamespace": "Game.App",
     "references": [
         "Game.Core",
+        "Game.Sun",
+        "Game.Shadow",
         "VContainer"
     ],
     "includePlatforms": [],
