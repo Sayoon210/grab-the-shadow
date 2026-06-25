@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c90c5d0311e74e4e9035ceb2ff3fb80, type: 3}
   m_Name: ShadowConfig
   m_EditorClassIdentifier: Game.Shadow::Game.Shadow.ShadowConfig
-  _groundY: -3
-  _maxShadowLength: 30
+  _maxShadowLength: 50
