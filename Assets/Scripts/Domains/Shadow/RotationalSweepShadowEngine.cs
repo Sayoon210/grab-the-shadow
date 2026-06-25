@@ -28,7 +28,7 @@ namespace Game.Shadow
         readonly List<float> _events = new();
 
         public ShadowPolygon ComputeShadow(
-            Vector2 light, in ShadowCaster caster, IReadOnlyList<Segment> occluders, float maxLength)
+            Vector2 light, in CasterShape caster, IReadOnlyList<Segment> occluders, float maxLength)
         {
             Vector2 hsize = caster.Size * 0.5f;
             Vector2 c = caster.Center;

@@ -10,7 +10,7 @@ namespace Game.Core
     public interface IShadowCaster
     {
         /// <summary>Caster silhouette (box) read fresh, with its owner id.</summary>
-        ShadowCaster Caster { get; }
+        CasterShape Shape { get; }
 
         /// <summary>Display the computed shadow for this caster.</summary>
         void Render(in ShadowPolygon poly);

@@ -16,14 +16,14 @@ public class RootLifetimeScope : LifetimeScope
         builder.RegisterInstance(_shadowConfig).As<IShadowConfig>();
 
         // Sun: the movable light object in the scene provides the light position.
-        builder.RegisterComponentInHierarchy<SunView>().As<ISunPosition>();
+        builder.RegisterComponentInHierarchy<SunLightSource>().As<ISunPosition>();
 
         // Map: occluder geometry the shadow is clipped against.
         builder.RegisterComponentInHierarchy<OccluderField>().As<IOccluderSource>();
 
         // Shadow: pure sweep engine + scene caster/view + the per-frame driver.
         builder.Register<RotationalSweepShadowEngine>(Lifetime.Singleton).As<IShadowEngine>();
-        builder.RegisterComponentInHierarchy<ShadowView>().As<IShadowCaster>();
+        builder.RegisterComponentInHierarchy<ShadowCaster>().As<IShadowCaster>();
         builder.RegisterEntryPoint<ShadowSystem>();
     }
 }

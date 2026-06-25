@@ -36,7 +36,7 @@ namespace Game.Shadow
         public void Tick()
         {
             var poly = _engine.ComputeShadow(
-                _sun.WorldPosition, _caster.Caster, _occluders.Segments, _config.MaxShadowLength);
+                _sun.WorldPosition, _caster.Shape, _occluders.Segments, _config.MaxShadowLength);
             _caster.Render(poly);
         }
     }

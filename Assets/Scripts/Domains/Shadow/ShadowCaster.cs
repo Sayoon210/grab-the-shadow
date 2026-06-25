@@ -11,7 +11,7 @@ namespace Game.Shadow
     /// <see cref="IShadowCaster"/> so the system can treat it as one of N casters.
     /// </summary>
     [DisallowMultipleComponent]
-    public sealed class ShadowView : MonoBehaviour, IShadowCaster
+    public sealed class ShadowCaster : MonoBehaviour, IShadowCaster
     {
         [Header("Caster")]
         [SerializeField] Vector2 _size = new(1f, 2f);
@@ -31,8 +31,8 @@ namespace Game.Shadow
         ShadowPolygon _lastPoly; // for debug gizmo
 #endif
 
-        /// <summary>Current caster description, read fresh from the transform.</summary>
-        public ShadowCaster Caster => new(transform.position, _size, _ownerId);
+        /// <summary>Current caster shape, read fresh from the transform.</summary>
+        public CasterShape Shape => new(transform.position, _size, _ownerId);
 
         void Awake()
         {
