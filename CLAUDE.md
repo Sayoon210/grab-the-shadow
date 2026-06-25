@@ -34,6 +34,7 @@ Unity 2D (URP) · C# · **VContainer** (DI) · **new Input System** (→ command
 - Sun = orbiting 2D point light; shadow direction/length follow from its geometry.
 - Character = custom **asymmetric-gravity** jump (gravity/velocity derived from height + time-to-peak/descent; in `PhysicsConfig`).
 - Vision cone follows the mouse (aim ≠ movement). Networking behind `INetworkService` (dummy for now).
+- **Debug visualization OK, but editor-only**: `OnDrawGizmos`/`Debug.DrawLine` to verify geometry (shadow polygons, occluders, arcs) is encouraged — but **wrap all of it (method, the fields/state it needs) in `#if UNITY_EDITOR`** so it is stripped from player builds. Keep it cheap; gameplay logic stays in services, never in gizmos.
 
 ## Current Stage
 **Stage 0–1**: DI skeleton + shadow engine + core loop (judge, stomp+cooldown, sun orbit).
