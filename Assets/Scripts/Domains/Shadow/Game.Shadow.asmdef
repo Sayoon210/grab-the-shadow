@@ -1,0 +1,17 @@
+{
+    "name": "Game.Shadow",
+    "rootNamespace": "Game.Shadow",
+    "references": [
+        "Game.Core",
+        "VContainer"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
